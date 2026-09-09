@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ghana Experience — Kiem Travels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FFFFFF;
+    --panel: #F5F3EC;
+    --ink: #182430;
+    --muted: #6B7A87;
+    --gold: #C97F1F;
+    --terra: #B25730;
+    --line: rgba(24,36,48,0.12);
+    --line-strong: rgba(24,36,48,0.28);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+  }
+
+  h1, h2, h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero{
+    position: relative;
+    background: #FFFFFF;
+  }
+
+  .hero-banner{
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .hero-inner{
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 56px 32px 84px;
+  }
+
+  .kicker{
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-weight: 400;
+  }
+
+  .kicker strong{
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .hero h1{
+    font-size: clamp(2.6rem, 6.4vw, 4.6rem);
+    max-width: 14ch;
+    line-height: 1.04;
+  }
+
+  .hero h1 em{
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  .hero-lede{
+    max-width: 58ch;
+    margin-top: 28px;
+    font-size: 1.1rem;
+    color: #3D4A56;
+  }
+
+  /* ---------- Sections ---------- */
+
+  section{
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .section-head h2{
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    max-width: 20ch;
+  }
+
+  .section-num{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  /* ---------- Offerings ---------- */
+
+  .offer{
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 28px;
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    align-items: start;
+  }
+
+  .offer:first-of-type{ border-top: none; }
+
+  .offer-index{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--gold);
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .offer h3{
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  .offer ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 8px 24px;
+    max-width: 58ch;
+  }
+
+  .offer li{
+    color: #3D4A56;
+    font-size: 0.98rem;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .offer li::before{
+    content:"—";
+    position:absolute;
+    left:0;
+    color: var(--muted);
+  }
+
+  .price{
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    color: var(--ink);
+    white-space: nowrap;
+    padding-top: 6px;
+    text-align: right;
+  }
+
+  .price small{
+    display:block;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 4px;
+  }
+
+  /* ---------- Offer slideshow ---------- */
+
+  .offer-slideshow{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+    background: var(--panel);
+    margin: 8px 0 4px;
+  }
+
+  .offer-slideshow img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: kiemSlide2 20s infinite;
+  }
+
+  .offer-slideshow img:nth-child(1){ animation-delay: 0s; }
+  .offer-slideshow img:nth-child(2){ animation-delay: 4s; }
+  .offer-slideshow img:nth-child(3){ animation-delay: 8s; }
+  .offer-slideshow img:nth-child(4){ animation-delay: 12s; }
+  .offer-slideshow img:nth-child(5){ animation-delay: 16s; }
+
+  @keyframes kiemSlide2{
+    0%{ opacity: 0; }
+    3%{ opacity: 1; }
+    17%{ opacity: 1; }
+    20%{ opacity: 0; }
+    100%{ opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .offer-slideshow img{ animation: none; opacity: 0; }
+    .offer-slideshow img:first-child{ opacity: 1; }
+  }
+
+  /* ---------- 5-day option ---------- */
+
+  .option-lede{
+    max-width: 62ch;
+    color: #3D4A56;
+    font-size: 1.05rem;
+    margin-bottom: 48px;
+  }
+
+  .rate-table{
+    border-top: 1px solid var(--line);
+  }
+
+  .rate-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    gap: 16px;
+  }
+
+  .rate-row h3{
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+
+  .rate-row .price{
+    padding-top: 0;
+  }
+
+  .option-note{
+    max-width: 62ch;
+    color: var(--muted);
+    font-size: 0.98rem;
+    margin-top: 32px;
+  }
+
+  /* ---------- Important note ---------- */
+
+  .note-panel{
+    padding: 32px 36px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+  }
+
+  .note-panel p{
+    margin: 0;
+    color: #3D4A56;
+    font-size: 0.98rem;
+    max-width: 68ch;
+  }
+
+  /* ---------- Closing ---------- */
+
+  .why p{
+    max-width: 66ch;
+    color: #3D4A56;
+    font-size: 1.08rem;
+    margin: 0 0 22px;
+  }
+
+  .why p:last-child{ margin-bottom: 0; }
+
+  .tagline{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-top: 32px;
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer{
+    padding: 72px 0 56px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-row{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  footer h2{
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    max-width: 16ch;
+  }
+
+  .contact-link{
+    display: inline-block;
+    padding: 14px 26px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.98rem;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .contact-link:hover{
+    border-color: var(--gold);
+    background: rgba(201,127,31,0.08);
+  }
+
+  .foot-meta{
+    margin-top: 40px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 720px){
+    .wrap{ padding: 0 20px; }
+    .hero-inner{ padding: 40px 20px 56px; }
+    section{ padding: 72px 0; }
+    .offer{
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .offer-index{ padding-top: 0; }
+    .offer ul{ grid-template-columns: 1fr; }
+    .price{ padding-top: 4px; text-align: left; }
+    .section-head{ flex-direction: column; gap: 8px; }
+    .rate-row{ flex-direction: column; align-items: flex-start; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <img class="hero-banner" src="images/ghana-banner.png" alt="The Ghana Experience">
+    <div class="hero-inner">
+      <p class="hero-lede">Good day. Please find below the estimated cost and details for your Ghana Experience Trip in November, carefully curated to give you a comfortable, enjoyable, and memorable experience.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <section id="packages">
+      <div class="section-head">
+        <h2>Package options</h2>
+        <span class="section-num">6 nights, per person</span>
+      </div>
+
+      <div class="offer">
+        <span class="offer-index">01</span>
+        <div>
+          <h3>Luxury Package</h3>
+          <ul>
+            <li>Return flights</li>
+            <li>2 nights at a resort with 3 rooms in total</li>
+            <li>4 nights in luxury apartments</li>
+            <li>Guided tours and sightseeing experiences</li>
+            <li>Souvenirs</li>
+            <li>Airport pick-up and drop-off</li>
+          </ul>
+        </div>
+        <div class="price">₦1,400,000<small>per person</small></div>
+      </div>
+
+      <div class="offer-slideshow">
+        <img src="images/ghana-lounge.png" alt="">
+        <img src="images/ghana-suite.png" alt="">
+        <img src="images/ghana-art-market.png" alt="">
+        <img src="images/ghana-elephant.png" alt="">
+        <img src="images/ghana-beach-ride.png" alt="">
+      </div>
+
+      <div class="offer">
+        <span class="offer-index">02</span>
+        <div>
+          <h3>Soft Package</h3>
+          <ul>
+            <li>Return flights</li>
+            <li>2 nights at a resort with 3 rooms in total</li>
+            <li>4 nights in standard apartment accommodation</li>
+            <li>Guided tours and sightseeing experiences</li>
+            <li>Souvenirs</li>
+            <li>Airport pick-up and drop-off</li>
+          </ul>
+        </div>
+        <div class="price">₦1,200,000<small>per person</small></div>
+      </div>
+    </section>
+
+    <section id="five-day">
+      <div class="section-head">
+        <h2>5-Day option</h2>
+        <span class="section-num">5 days / 4 nights</span>
+      </div>
+
+      <p class="option-lede">Should you prefer to review the duration of the trip to 5 days / 4 nights, we can also offer the following revised rates:</p>
+
+      <div class="rate-table">
+        <div class="rate-row">
+          <h3>Luxury Package</h3>
+          <div class="price">₦1,200,000<small>per person</small></div>
+        </div>
+        <div class="rate-row">
+          <h3>Soft Package</h3>
+          <div class="price">₦1,000,000<small>per person</small></div>
+        </div>
+      </div>
+
+      <p class="option-note">This option allows you to enjoy the Ghana experience on a shorter itinerary while maintaining the key inclusions of the selected package.</p>
+    </section>
+
+    <section id="note">
+      <div class="note-panel">
+        <p><strong>Important note:</strong> All prices stated above are estimates based on the current available rates and may be subject to change depending on flight fares, accommodation availability, and other travel-related costs at the time of confirmation.</p>
+      </div>
+    </section>
+
+    <section class="why" id="closing">
+      <p>We would be delighted to assist you with your travel arrangements and ensure that your Ghana Experience is seamless, comfortable, and memorable.</p>
+      <p>Thank you for choosing Kiem Travels.</p>
+      <p class="tagline">Travel with ease. Experience more.</p>
+    </section>
+
+  </div>
+
+</body>
+</html>
